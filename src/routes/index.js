@@ -5,7 +5,7 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
-import PrivateRoute from "PrivateRoute";
+import PrivateRoute from "./PrivateRoute";
 import PublicPage from "views/PublicPage";
 import PrivatePage from "views/PrivatePage";
 
