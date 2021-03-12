@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from 'App';
+import reportWebVitals from 'reportWebVitals';
+import { ReactQueryConfigProvider } from 'react-query';
+
+const queryConfig = {
+  queries: {
+    refetchOnWindowFocus: false,
+    retry: 1,
+  },
+  mutations: {
+    throwOnError: false,
+  },
+};
+
 
 ReactDOM.render(
   <React.StrictMode>
+  <ReactQueryConfigProvider config={queryConfig}>
     <App />
+   </ReactQueryConfigProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
