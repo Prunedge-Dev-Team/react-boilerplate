@@ -46,7 +46,7 @@ const Routes = () => (
           component={route.component}
         />
       ))}
-      <Redirect to={PublicPaths.LOGIN} />
+      <Redirect to={PublicPaths.PUBLIC} />
     </Switch>
   </Router>
 );
