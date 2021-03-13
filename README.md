@@ -10,8 +10,13 @@ This is a starter project for Reactjs apps bootstrapped with create-react-app an
 basic app routing with react-router-dom has also been setup
 
 ## Getting started
+To use this starter project, scroll to the top of this page and find the `Use this template` button
+![image](https://user-images.githubusercontent.com/37719470/111035156-66485f80-8419-11eb-964f-f6ceca0840c0.png)
 
-After cloning the repo in the project directory, you can run:
+Clicking on it will prompt you to create a new repo that will include all the content of this starter project.
+
+
+In the project directory, you can run:
 ### `yarn start`
 
 Runs the app in the development mode.\
