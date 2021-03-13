@@ -1,11 +1,17 @@
-# Getting Started with Create React App
+# react-antd-boilerplate
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a starter project for Reactjs apps bootstrapped with create-react-app and has the following libraries added;
 
-## Available Scripts
+- React-query: For data-fetching.
+- Ant Design : As the default design system.
+- Axios: For HTTP requests.
+- Makestyles: For Css-in-js styling.
 
-In the project directory, you can run:
+basic app routing with react-router-dom has also been setup
 
+## Getting started
+
+After cloning the repo in the project directory, you can run:
 ### `yarn start`
 
 Runs the app in the development mode.\
