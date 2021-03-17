@@ -1,13 +1,36 @@
-# react-antd-boilerplate
+# React-Antd-Qucikstart-Boilerplate
 
-This is a starter project for Reactjs apps bootstrapped with create-react-app and has the following libraries added;
+This is a starter project for React.js apps bootstrapped with create-react-app and has the following libraries in `Technologies` section already added.
 
-- React-query: For data-fetching.
-- Ant Design : As the default design system.
-- Axios: For HTTP requests.
-- Makestyles: For Css-in-js styling.
+## Technologies​
+- [React](https://reactjs.org)
+- [Ant Design](https://ant.design/): Default Design System.
+- [Material-ui/styles](https://material-ui.com/styles/basics/): For Css-in-js styling.
+- [Axios](https://github.com/axios/axios): For making HTTP requests.
+- [React Query](https://react-query.tanstack.com): For server-side state management.
+- [React Router DOM](https://reactrouter.com/web/guides/quick-start): Basic App routing has been setup using this.
 
-basic app routing with react-router-dom has also been setup
+
+## Project Setup
+
+The folder structure of the src directory of the project is as follows:<br/>
+
+- `assets`: This folder can contain the images and any other assets like svg files used in our application.
+- `reusables`: This can contain all global reusable components in the app.
+- `routes`: This folder contains the configurations for routing and user authorization with react-router-dom.
+- `utils` : This folder contains all globally used utils.
+- `components` : This folder contains most of the non-resuable or page components used within the application. 
+- `pages` : This folder contains all page views.
+- `services`: This file contains all api calls made from this module.
+
+**N/B** 
+- A `Css.js` file is present in the src directory of the project. It should house all global and reusable style configurations.e.g primary-colors, default fonts, etc.
+- Instruction.js files are present in every folder and comments at the top of each major file to give documentation about the make up of the file of folder.
+
+
+## API Integration Architecture​
+The steps detailing the api integration workflow can be found in [Guidelines for API Integration](API_INTEGRATION.md).
+
 
 ## Getting started
 To use this starter project, scroll to the top of this page and find the `Use this template` button
@@ -50,6 +73,7 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
@@ -79,3 +103,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Contributing
+
+Feel like contributing to this project? We have a [contributing guide](./CONTRIBUTING.md) to help guide you.
+
