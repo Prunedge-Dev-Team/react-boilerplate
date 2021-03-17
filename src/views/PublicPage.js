@@ -1,12 +1,15 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/styles'
 import { fontSizes, fontWeight } from 'css.js'
+import { Typography } from 'antd';
+
+const { Title } = Typography;
 
 function PublicPage() {
     const classes = useStlyes()
     return (
         <div className={classes.container}>
-            <p>Let's build 🥂</p>
+            <Title level={2}>Let's build 🥂</Title>
         </div>
     )
 }
