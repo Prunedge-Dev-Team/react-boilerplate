@@ -16,9 +16,12 @@ React Query has three hooks that are of interest to us:
   ```javascript
   import { useQuery } from "react-query";
 
-  const { status, error, data } = useQuery(queryKey, async function fetcherFunction(...queryKey) {
-    // The function to actually perform the API request
-  });
+  const { status, error, data } = useQuery(
+    queryKey,
+    async function fetcherFunction(...queryKey) {
+      // The function to actually perform the API request
+    }
+  );
   ```
 
   The above hook causes useQuery to invoke the `fetcherFunction` once the component is mounted, and `status` is updated to reflect the status of the request as the function executes, from `loading` to `success` or `error`.
@@ -65,9 +68,11 @@ React Query has three hooks that are of interest to us:
   ```javascript
   import { useMutation } from "react-query";
 
-  const [mutate, { status, error, data, reset }] = useMutation(async function mutatorFunction(variables) {
-    // Make the request with the variables
-  });
+  const [mutate, { status, error, data, reset }] = useMutation(
+    async function mutatorFunction(variables) {
+      // Make the request with the variables
+    }
+  );
 
   useEffect(() => {
     if (status === "error") {
@@ -99,7 +104,7 @@ React Query has three hooks that are of interest to us:
 
 Create a fetcher or mutator function within the appropriate API file, or create a new file if no related file exists. Ensure to give descriptive names to the functions but keep in mind that the functions will be part of an object so don't be too verbose, e.g. `procurementAPI.getContracts` is better than `procurementAPI.getProcurementContracts`. Mutations should have it clear in their name that they mutate stuff, e.g. `procurementAPI.uploadDocuments` clearly doesn't make a GET request.
 
-Ensure to wrap your code in a `try...catch` block, call `handleAxiosError` to get a human readable message and then `throw new Error([return value from handleAxiosError])`. **Avoid throwing strings**.
+Ensure to wrap your code in a `try...catch` block, call `handleApiError` to get a human readable message and then `throw new Error([return value from handleApiError])`. **Avoid throwing strings**.
 
 ### Making GET requests (useQuery)
 
@@ -110,10 +115,12 @@ Within an API file:
 ```javascript
 procurementAPI.getContracts = async function (_, procurementPlanId) {
   try {
-    const response = await baseAxiosMethod(`/procurements/${procurementPlanId}/contracts`);
+    const response = await Api(
+      `/procurements/${procurementPlanId}/contracts`
+    );
     return response.data.data;
   } catch (e) {
-    throw new Error(handleAxiosError(e));
+    throw new Error(handleApiError(e));
   }
 };
 ```
@@ -156,9 +163,12 @@ Here's an example of how to use `usePaginatedQuery`.
 Within an API file:
 
 ```javascript
-procurementAPI.getContracts = async function (_, { procurementPlanId, page = 1, pageSize = 30 }) {
+procurementAPI.getContracts = async function (
+  _,
+  { procurementPlanId, page = 1, pageSize = 30 }
+) {
   try {
-    const response = await baseAxiosMethod(
+    const response = await Api(
       `/procurements/${procurementPlanId}/contracts?PageNumber=${page}&PageSize=${pageSize}`
     );
     return {
@@ -166,7 +176,7 @@ procurementAPI.getContracts = async function (_, { procurementPlanId, page = 1, 
       pagination: response.data.meta.pagination,
     };
   } catch (e) {
-    throw new Error(handleAxiosError(e));
+    throw new Error(handleApiError(e));
   }
 };
 ```
@@ -227,14 +237,18 @@ Here's an example of how to use `useMutation`
 Within the API file
 
 ```javascript
-procurementAPI.uploadDocuments = async function ({ mandatoryDocuments, supportingDocuments, planActivityId }) {
+procurementAPI.uploadDocuments = async function ({
+  mandatoryDocuments,
+  supportingDocuments,
+  planActivityId,
+}) {
   try {
     const fd = new FormData();
     fd.set("MandatoryDocuments", mandatoryDocuments);
     fd.set("SupportingDocumentts", supportingDocuments);
-    await baseAxiosMethod.post(`/procurements/${planActivityId}/documents`, fd);
+    await Api.post(`/procurements/${planActivityId}/documents`, fd);
   } catch (e) {
-    throw new Error(handleAxiosError(e));
+    throw new Error(handleApiError(e));
   }
 };
 ```
@@ -248,7 +262,9 @@ function MyComponent() {
   } = useRouteMatch();
   const [mandatoryDocuments, setMandatoryDocuments] = useState([]);
   const [supportingDocuments, setSupportingDocuments] = useState([]);
-  const [uploadDocuments, { status, error }] = useMutation(procurementAPI.uploadDocuments);
+  const [uploadDocuments, { status, error }] = useMutation(
+    procurementAPI.uploadDocuments
+  );
 
   const handleSubmit = async () => {
     await uploadDocuments({

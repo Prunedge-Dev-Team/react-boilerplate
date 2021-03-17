@@ -3,7 +3,8 @@
 import axios from "axios";
 import Auth from "./Auth";
 
-const exampleURL = "https://kwara-api-eprocuremen-tool.herokuapp.com/api/v1";
+// This url is used for demonstation purposes only. Configure the url for your app in a .env file.
+const exampleURL = "https://kwara-api-eprocuremen-tool.herokuapp.com/api/v1"; 
 
 const Api = axios.create({
   baseURL: process.env.REACT_APP_BASE_API_URL || exampleURL,
@@ -11,7 +12,7 @@ const Api = axios.create({
 
 Api.interceptors.request.use(
   (config) => {
-    // Add authorization key to config object if it exist
+    // This adds an authorization key to config object if a token exists.
     if (Auth.isAuthenticated() === true) {
       config.headers.common["Authorization"] = `Bearer ${Auth.getToken()}`;
     }
