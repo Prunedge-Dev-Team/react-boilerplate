@@ -1,4 +1,4 @@
-# React-Antd-Qucikstart-Boilerplate
+# React-Antd-Quickstart-Boilerplate
 
 This is a starter project for React.js apps bootstrapped with create-react-app and has the following libraries in `Technologies` section already added.
 
