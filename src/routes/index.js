@@ -3,28 +3,31 @@ import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
-import PublicPage from "views/PublicPage";
-import PrivatePage from "views/PrivatePage";
+import PublicPage from "pages/PublicPage";
+import PrivatePage from "pages/PrivatePage";
+import IntegrationExample from "pages/IntegrationExample"
 
 export const PublicPaths = {
-  PUBLIC: "/public"
+  PUBLIC: "/public",
 };
 
-export const PrivatePaths = {  
-  PRIVATE: "/private"
+export const PrivatePaths = {
+  PRIVATE: "/private",
+  INTEGRATION_EXAMPLE: "/integration-example"
 };
 
-const publicRoutes = [ 
+const publicRoutes = [
   /* Add paths for unauthorized users */
-  { path: PublicPaths.PUBLIC, exact: true, component: PublicPage }
+  { path: PublicPaths.PUBLIC, exact: true, component: PublicPage },
 ];
 
-const privateRoutes = [ 
+const privateRoutes = [
   /* Add paths for authorized users */
-  { path: PrivatePaths.PRIVATE, exact: true, component: PrivatePage }
+  { path: PrivatePaths.PRIVATE, exact: true, component: PrivatePage },
+  { path: PrivatePaths.INTEGRATION_EXAMPLE, exact: true, component: IntegrationExample },
 ];
 
 const Routes = () => (
