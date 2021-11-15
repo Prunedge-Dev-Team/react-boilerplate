@@ -2,8 +2,8 @@
 // Common styles could be boxShadow style or any globally used styles.
 
 export const colors = {
-  primary: "",
-  secondary: "",
+  primary: '#0050C8',
+  secondary: '#E5E5E5',
   black: "#000",
   white: "#fff",
   error: "#ff4d4f",
@@ -27,4 +27,8 @@ export const fontWeight = {
   medium: 600,
   regular: 400,
   light: 300,
+};
+
+export const fontFamily = {
+  primary: `'Raleway', sans-serif`,
 };
