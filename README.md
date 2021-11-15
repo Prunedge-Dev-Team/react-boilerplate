@@ -1,12 +1,12 @@
-# React-Antd-Quickstart-Boilerplate
+# React-MUI-Rest-Quickstart-Boilerplate
 
 This is a starter project for React.js apps bootstrapped with create-react-app and has the following libraries in `Technologies` section already added.
 
 ## Technologies​
 
 - [React](https://reactjs.org)
-- [Ant Design](https://ant.design/): Default Design System.
-- [Material-ui/styles](https://material-ui.com/styles/basics/): For Css-in-js styling.
+- [Material-ui](https://mui.com/): Default Design System.
+- [Emotion Styled Components](https://emotion.sh/docs/styled): Default Css-in-js styling system for Material-ui.
 - [Axios](https://github.com/axios/axios): For making HTTP requests.
 - [React Query](https://react-query.tanstack.com): For server-side state management.
 - [React Router DOM](https://reactrouter.com/web/guides/quick-start): Basic App routing has been setup using this.
@@ -22,6 +22,7 @@ The folder structure of the src directory of the project is as follows:<br/>
 - `components` : This folder contains most of the non-resuable or page components used within the application.
 - `pages` : This folder contains all page views.
 - `services`: This file contains all api calls made from this module.
+- `context`: This folder contains context providers.
 
 **N/B**
 
@@ -30,7 +31,7 @@ The folder structure of the src directory of the project is as follows:<br/>
 
 ## API Integration Architecture​
 
-The steps detailing the api integration workflow can be found in [Guidelines for API Integration](API_INTEGRATION.md).
+The steps detailing the api integration workflow can be found in [Guidelines for API Integration](API_INTEGRATION.md). These guidelines mostly apply to the older version of React Query but a lot of concepts still apply. You can reference the docs at https://react-query.tanstack.com/overview for updated concepts. You might also find this article helpful https://www.audreyhal.com/blog/server-state-management-with-react-query for the newer version.
 
 An example of the api integration workflow is provided in (IntegrationExample.js)[src\pages\IntegrationExample.js]. You can access it on the browser at http://localhost:3000/integration-example
 
