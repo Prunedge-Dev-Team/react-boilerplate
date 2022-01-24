@@ -1,17 +1,17 @@
 import React from "react";
 import Auth from "../utils/Auth";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { PrivatePaths } from "../routes";
 import { makeStyles } from "@material-ui/styles";
 import { fontSizes, fontWeight } from "Css.js";
 
 function PublicPage() {
   const classes = useStlyes();
-  let history = useHistory();
+  let navigate = useNavigate();
 
   const handleLogIn = () => {
     Auth.setToken("exampleToken");
-    history.push(PrivatePaths.PRIVATE);
+    navigate(PrivatePaths.PRIVATE);
   };
 
   return (
