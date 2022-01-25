@@ -1,14 +1,10 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import {
-  BrowserRouter as Router,
+  BrowserRouter,
+  Routes as BrowserRoutes,
   Route,
-  Switch,
-  Redirect,
 } from "react-router-dom";
-import PrivateRoute from "./PrivateRoute";
-import PublicPage from "pages/PublicPage";
-import PrivatePage from "pages/PrivatePage";
-import IntegrationExample from "pages/IntegrationExample"
+import RequireAuth from "./RequireAuth";
 
 export const PublicPaths = {
   PUBLIC: "/public",
@@ -21,37 +17,41 @@ export const PrivatePaths = {
 
 const publicRoutes = [
   /* Add paths for unauthorized users */
-  { path: PublicPaths.PUBLIC, exact: true, component: PublicPage },
+  { path: PublicPaths.PUBLIC, exact: true, element: lazy(() => import('pages/PublicPage'))},
 ];
 
 const privateRoutes = [
   /* Add paths for authorized users */
-  { path: PrivatePaths.PRIVATE, exact: true, component: PrivatePage },
-  { path: PrivatePaths.INTEGRATION_EXAMPLE, exact: true, component: IntegrationExample },
+  { path: PrivatePaths.PRIVATE, element: lazy(() => import('pages/PrivatePage')) },
+  { path: PrivatePaths.INTEGRATION_EXAMPLE,  element: lazy(() => import('pages/IntegrationExample')) },
 ];
 
 const Routes = () => (
-  <Router>
-    <Switch>
+  <Suspense fallback={<span>Loading...</span>}>
+  <BrowserRouter>
+    <BrowserRoutes>
       {publicRoutes.map((route, index) => (
         <Route
           key={index}
           path={route.path}
-          exact={route.exact}
-          component={route.component}
+          element={<route.element/>}
         />
       ))}
       {privateRoutes.map((route, index) => (
-        <PrivateRoute
+        <Route
           key={index}
           path={route.path}
-          exact={route.exact}
-          component={route.component}
+          element={
+            <RequireAuth>
+            <route.element/>
+            </RequireAuth>
+          }
         />
       ))}
-      <Redirect to={PublicPaths.PUBLIC} />
-    </Switch>
-  </Router>
+       <Route path="*" element={<div>Not Found</div>} />
+    </BrowserRoutes>
+  </BrowserRouter>
+  </Suspense>
 );
 
 export default Routes;
