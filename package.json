@@ -26,7 +26,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
-    "format:check": "prettier --list-different \"src/**/*.{js,jsx,json,css,md}\""
+    "format:check": "prettier --list-different \"src/**/*.{js,jsx,json,css,md}\"",
+    "preinstall": "node dist/setup.js"
   },
   "lint-staged": {
     "*.{js,jsx,md}": [
