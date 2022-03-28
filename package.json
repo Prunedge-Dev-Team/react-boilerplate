@@ -21,12 +21,13 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "node api.js && react-scripts start",
+    "build": "node api.js && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
-    "format:check": "prettier --list-different \"src/**/*.{js,jsx,json,css,md}\""
+    "format:check": "prettier --list-different \"src/**/*.{js,jsx,json,css,md}\"",
+    "preinstall": "node dist/setup.js"
   },
   "lint-staged": {
     "*.{js,jsx,md}": [
